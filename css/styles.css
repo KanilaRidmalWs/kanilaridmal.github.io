@@ -93,11 +93,18 @@ p {
 
 /* Header */
 header {
-    background: var(--primary-color);
+    background: 
+      linear-gradient(rgba(44, 62, 80, 0.6), rgba(44, 62, 80, 0.6)),
+      url('images/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     color: var(--light-text-color);
-    padding: 80px 0;
+    padding: 120px 0;
     text-align: center;
+    position: relative;
 }
+
 
 header h1 {
     font-size: 3rem;
