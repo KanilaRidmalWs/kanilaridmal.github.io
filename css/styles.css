@@ -618,3 +618,25 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/* Keep responsiveness for the header */
+@media (max-width: 768px) {
+    header {
+        padding: 80px 0;
+        background-attachment: scroll; /* Better performance on mobile */
+    }
+    
+    header h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    header {
+        padding: 60px 0;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+}
