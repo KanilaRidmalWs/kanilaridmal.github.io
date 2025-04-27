@@ -3,6 +3,54 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinksContainer = document.querySelector('.nav-links');
     const body = document.body;
+    const themeToggle = document.querySelector('#theme-toggle');
+    const scrollTopBtn = document.querySelector('.scroll-top-btn');
+    
+    // Check for saved theme preference or use preferred color scheme
+    const currentTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    
+    // Apply theme on page load
+    if (currentTheme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        if (themeToggle) themeToggle.checked = true;
+    } else {
+        document.documentElement.setAttribute('data-theme', 'light');
+        if (themeToggle) themeToggle.checked = false;
+    }
+    
+    // Theme toggle functionality
+    if (themeToggle) {
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                document.documentElement.setAttribute('data-theme', 'light');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+    }
+    
+    // Scroll to top button visibility
+    window.addEventListener('scroll', function() {
+        if (scrollTopBtn) {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('show');
+            } else {
+                scrollTopBtn.classList.remove('show');
+            }
+        }
+    });
+    
+    // Scroll to top functionality
+    if (scrollTopBtn) {
+        scrollTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
     
     // Mobile menu toggle
     menuToggle.addEventListener('click', function() {
