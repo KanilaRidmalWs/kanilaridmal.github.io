@@ -158,6 +158,8 @@ nav .container {
     right: 15px;
     cursor: pointer;
     z-index: 10;
+    margin-right: 15px; /* Add right margin to keep it within the blue strip */
+    padding: 0.25rem 0.5rem; /* Add some padding around the button */
 }
 
 .menu-toggle span {
@@ -269,6 +271,7 @@ nav a.active::after {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    aspect-ratio: 1 / 1; /* Force a 1:1 aspect ratio */
     transition: transform 0.5s;
 }
 
@@ -507,6 +510,16 @@ footer {
     .skills-grid {
         gap: 20px;
     }
+    
+    .profile-image {
+        flex: 0 0 250px;
+        height: 250px;
+    }
+    
+    .profile-image img {
+        width: 250px;
+        height: 250px;
+    }
 }
 
 @media (max-width: 576px) {
@@ -548,6 +561,11 @@ footer {
         height: 200px;
     }
     
+    .profile-image img {
+        width: 200px;
+        height: 200px;
+    }
+    
     .contact-item {
         padding: 20px;
     }
@@ -569,6 +587,11 @@ footer {
     
     .profile-image {
         flex: 0 0 150px;
+        height: 150px;
+    }
+    
+    .profile-image img {
+        width: 150px;
         height: 150px;
     }
     
