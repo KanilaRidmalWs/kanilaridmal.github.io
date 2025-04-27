@@ -109,13 +109,16 @@ header {
 header h1 {
     font-size: 3rem;
     margin-bottom: 10px;
+    color: #fff;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
 }
 
 header h2 {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.8);
+    color: #eee;
+    text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 header h2::after {
