@@ -91,30 +91,24 @@ p {
     transform: translateY(0);
 }
 
-/* Header with background image */
+/* Header */
 header {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('./images/banner.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Creates a parallax-like effect */
+    background: var(--primary-color);
     color: var(--light-text-color);
-    padding: 120px 0; /* Increased padding to make the banner taller */
+    padding: 80px 0;
     text-align: center;
-    position: relative;
 }
 
 header h1 {
     font-size: 3rem;
     margin-bottom: 10px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 header h2 {
     font-size: 1.5rem;
     font-weight: 400;
     margin-bottom: 30px;
-    color: rgba(255, 255, 255, 0.9);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 header h2::after {
@@ -612,27 +606,5 @@ footer {
     
     h3 {
         font-size: 1.2rem;
-    }
-}
-
-/* Keep responsiveness for the header */
-@media (max-width: 768px) {
-    header {
-        padding: 80px 0;
-        background-attachment: scroll; /* Better performance on mobile */
-    }
-    
-    header h1 {
-        font-size: 2.5rem;
-    }
-}
-
-@media (max-width: 576px) {
-    header {
-        padding: 60px 0;
-    }
-    
-    header h1 {
-        font-size: 2rem;
     }
 }
