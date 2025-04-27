@@ -93,7 +93,7 @@ p {
 
 /* Header with background image */
 header {
-    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('https://kanilaridmalws.github.io/images/banner.jpg');
+    background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('./images/banner.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed; /* Creates a parallax-like effect */
