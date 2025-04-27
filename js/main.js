@@ -1,7 +1,17 @@
-// Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav a');
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const body = document.body;
     
+    // Mobile menu toggle
+    menuToggle.addEventListener('click', function() {
+        menuToggle.classList.toggle('active');
+        navLinksContainer.classList.toggle('active');
+        body.classList.toggle('menu-open');
+    });
+    
+    // Close mobile menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
@@ -9,6 +19,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
+            // Close mobile menu if it's open
+            if (navLinksContainer.classList.contains('active')) {
+                menuToggle.classList.remove('active');
+                navLinksContainer.classList.remove('active');
+                body.classList.remove('menu-open');
+            }
+            
+            // Smooth scroll to section
             window.scrollTo({
                 top: targetSection.offsetTop - 60,
                 behavior: 'smooth'
@@ -38,5 +56,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 link.classList.add('active');
             }
         });
+    });
+    
+    // Add fade-in animation for sections
+    const allSections = document.querySelectorAll('.section');
+    
+    const revealSection = function(entries, observer) {
+        const [entry] = entries;
+        
+        if (entry.isIntersecting) {
+            entry.target.classList.add('section-visible');
+            observer.unobserve(entry.target);
+        }
+    };
+    
+    const sectionObserver = new IntersectionObserver(revealSection, {
+        root: null,
+        threshold: 0.15,
+    });
+    
+    allSections.forEach(function(section) {
+        sectionObserver.observe(section);
+        section.classList.add('section-hidden');
     });
 });
